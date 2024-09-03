@@ -11,7 +11,7 @@ const UserContent = ({ userId }) => {
     const fetchContent = async () => {
       try {
         console.log('Fetching content for user:', userId);
-        const result = await axios.get(`https://mediste-server.vercel.app/api/content/${userId}`);
+        const result = await axios.get(`https://mediste-server.vercel.app/content/${userId}`);
         console.log('Content fetched:', result.data);
         setContentList(result.data);
       } catch (error) {
@@ -27,10 +27,10 @@ const UserContent = ({ userId }) => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`https://mediste-server.vercel.app/api/content/${id}`);
+      await axios.delete(`https://mediste-server.vercel.app/content/${id}`);
       setMessage('Content successfully deleted.');
       // Refetch data after deletion
-      const result = await axios.get(`https://mediste-server.vercel.app/api/content/${userId}`);
+      const result = await axios.get(`https://mediste-server.vercel.app/content/${userId}`);
       setContentList(result.data);
     } catch (error) {
       setMessage('Error deleting content.');
@@ -41,7 +41,7 @@ const UserContent = ({ userId }) => {
   const handleUpdate = async (id) => {
     try {
       const updatedContent = { quantity: editedQuantity };
-      const response = await axios.put(`https://mediste-server.vercel.app/api/content/${id}`, updatedContent);
+      const response = await axios.put(`https://mediste-server.vercel.app/content/${id}`, updatedContent);
       setContentList(contentList.map(item => item._id === id ? response.data : item));
       setMessage('Content successfully updated.');
       setEditingId(null);

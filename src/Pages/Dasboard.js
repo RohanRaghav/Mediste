@@ -22,7 +22,7 @@ const Dashboard = () => {
           setIsAuthenticated(true);
           setUsername(storedUsername || '');
           console.log('Fetching content from API...');
-          const result = await axios.get('https://mediste-server.vercel.app/api/content/full');
+          const result = await axios.get('https://mediste-server.vercel.app/content/full');
           console.log('Content fetched successfully:', result.data);
           setContentList(result.data);
         } else {

@@ -33,7 +33,7 @@ const Login = () => {
       }
   
       try {
-        const response = await fetch(`${apiUrl}/api/signup`, {
+        const response = await fetch(`${apiUrl}/signup`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -56,7 +56,7 @@ const Login = () => {
     } 
      else {
       try {
-        const response = await fetch(`${apiUrl}/api/login`, {
+        const response = await fetch(`${apiUrl}/login`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
