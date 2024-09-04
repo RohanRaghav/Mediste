@@ -76,51 +76,61 @@ const Medicineform = () => {
     <>
       <DashNaav />
       <div style={{ marginTop: 100 }}>
-        <div className='dashboard'>
-          <center>
-          <form className='form' onSubmit={handleSubmit}>
-            <div>
-              <label>Name:</label>
-              <input
-                type='text'
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
-              />
-            </div><br />
-            <div>
-              <label>Quantity:</label>
-              <input
-                type='number'
-                value={quantity}
-                onChange={(e) => setQuantity(e.target.value)}
-                required
-                min="1"
-              />
-            </div><br />
-            <div>
-              <label>Expiry Date:</label>
-              <input
-                type='date'
-                value={expiryDate}
-                onChange={(e) => setExpiryDate(e.target.value)}
-                required
-              />
-            </div><br />
-            <div>
-              <label>Manufacturing Date:</label>
-              <input
-                type='date'
-                value={manufacturingDate}
-                onChange={(e) => setManufacturingDate(e.target.value)}
-                required
-              />
-            </div><br />
-            <button type='submit'>Save Content</button>
-          </form></center>
+        <center>
+      <div className='dashboard'>
+  <form className='form' onSubmit={handleSubmit}>
+    <div className='form-group'>
+      <label className='zoro'>Name:</label>
+      <input
+        type='text'
+        value={name}
+        className='labal'
+        onChange={(e) => setName(e.target.value)}
+        required
+      />
+    </div>
+
+    <div className='form-group'>
+      <label className='zoro'>Quantity:</label>
+      <input
+        type='number'
+        value={quantity}
+        className='labal'
+        onChange={(e) => setQuantity(e.target.value)}
+        required
+        min="1"
+      />
+    </div>
+
+    <div className='form-group'>
+      <label className='zoro'>Expiry Date:</label>
+      <input
+        type='date'
+        className='labal'
+        value={expiryDate}
+        style={{width:150}}
+        onChange={(e) => setExpiryDate(e.target.value)}
+        required
+      />
+    </div>
+
+    <div className='form-group'>
+      <label className='zoro'>Manufacturing Date:</label>
+      <input
+        type='date'
+        className='labal'
+        style={{width:150}}
+        value={manufacturingDate}
+        onChange={(e) => setManufacturingDate(e.target.value)}
+        required
+      />
+    </div>
+
+    <button className='save' type='submit'>Save Content</button>
+  </form>
           {message && <p>{message}</p>}
           <UserContent userId={userId} />
-        </div>
+        </div></center>
       </div>
     </>
   );

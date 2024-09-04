@@ -2,7 +2,7 @@ import React from 'react';
 
 const About = () => {
   return (
-    <div>
+    <div id='about'>
       <div className="container-medium">
         <div className="padding-section-medium">
           <div className="join-wrapper">
@@ -26,7 +26,7 @@ const About = () => {
                 Experience the power of our solutions firsthand! Login to discover how we can tailor our services to meet your unique needs
                 </p>
                 <div className="div-block-90">
-                  <a href="/request-demo" className="button is-secondary w-inline-block" previewlistener="true">
+                  <a href="#login" className="button is-secondary w-inline-block" previewlistener="true">
                     <div>Sign up Now</div>
                     <div className="html-embed-2 w-embed">
                       <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">

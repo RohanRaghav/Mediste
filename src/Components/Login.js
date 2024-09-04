@@ -87,7 +87,7 @@ const Login = () => {
         <div className="image-container">
           <img className='imagek' src={isSignUp ? "try.png" : "try.png"} alt={isSignUp ? "Signup Image" : "Login Image"} />
         </div>
-        <div className="form-container">
+        <div className="form-container" id="login">
           {isSignUp ? (
             <div className="signup-form">
               <h2>Sign Up</h2>

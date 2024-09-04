@@ -93,16 +93,16 @@ const UserContent = ({ userId }) => {
                 <td style={{background:'white'}}>
                   {editingId === item._id ? (
                     <>
-                      <button onClick={() => handleUpdate(item._id)}>Save</button>
-                      <button onClick={() => setEditingId(null)}>Cancel</button>
+                      <button className='old' onClick={() => handleUpdate(item._id)}>Save</button>
+                      <button className='old' onClick={() => setEditingId(null)}>Cancel</button>
                     </>
                   ) : (
                     <>
-                      <button onClick={() => {
+                      <button className='old' onClick={() => {
                         setEditingId(item._id);
                         setEditedQuantity(item.quantity);
-                      }}>Edit Quantity</button>
-                      <button onClick={() => handleDelete(item._id)}>Delete</button>
+                      }}><img src='edit.png' className='edit' /></button>
+                      <button className='old' onClick={() => handleDelete(item._id)}><img src='delete.png' className='edit' /></button>
                     </>
                   )}
                 </td>

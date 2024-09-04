@@ -141,7 +141,7 @@ const Dashboard = () => {
           </div>
         </div>
         <button onClick={toggleChat} className="open-chat-button">
-        Chat
+        <img src='chat.png' style={{width:50, height:50}} />
       </button>
       <Chat isVisible={isChatVisible} onClose={() => setIsChatVisible(false)} />
       </>

@@ -8,7 +8,7 @@ const Faq = () => {
   };
 
   return (
-    <div className="padding-section-medium">
+    <div className="padding-section-medium" id='faq'>
       <div className="div-block-114">
         <div className="div-block-115">
           <div className="div-block-116">

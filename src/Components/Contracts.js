@@ -43,7 +43,7 @@ const Contracts = () => {
   ];
 
   return (
-    <div>
+    <div id='member'>
       <div className="padding-section-medium">
         <div className="div-block-87">
           <h2 className="heading-23">The Minds Behind the Solution</h2>
