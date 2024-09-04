@@ -8,8 +8,7 @@ const DashNaav = () => {
       <div className="navbar-container">
         <nav className="navbar">
           <div className="navbar-content">
-            <img src="/Abc.JPG" alt="Logo" className="navbar-logo" />
-            <span className="navbar-text">MEDISTE TECH</span>
+          <img src="logo1.jpg" alt="Logo" className="navbar-logo" />
           </div>
           <div className="navbar-links">
             <div  className="nav-link" style={{cursor:"pointer", fontSize:'1.5rem'}}>

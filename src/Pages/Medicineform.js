@@ -77,7 +77,8 @@ const Medicineform = () => {
       <DashNaav />
       <div style={{ marginTop: 100 }}>
         <div className='dashboard'>
-          <form onSubmit={handleSubmit}>
+          <center>
+          <form className='form' onSubmit={handleSubmit}>
             <div>
               <label>Name:</label>
               <input
@@ -86,7 +87,7 @@ const Medicineform = () => {
                 onChange={(e) => setName(e.target.value)}
                 required
               />
-            </div>
+            </div><br />
             <div>
               <label>Quantity:</label>
               <input
@@ -96,7 +97,7 @@ const Medicineform = () => {
                 required
                 min="1"
               />
-            </div>
+            </div><br />
             <div>
               <label>Expiry Date:</label>
               <input
@@ -105,7 +106,7 @@ const Medicineform = () => {
                 onChange={(e) => setExpiryDate(e.target.value)}
                 required
               />
-            </div>
+            </div><br />
             <div>
               <label>Manufacturing Date:</label>
               <input
@@ -114,9 +115,9 @@ const Medicineform = () => {
                 onChange={(e) => setManufacturingDate(e.target.value)}
                 required
               />
-            </div>
+            </div><br />
             <button type='submit'>Save Content</button>
-          </form>
+          </form></center>
           {message && <p>{message}</p>}
           <UserContent userId={userId} />
         </div>

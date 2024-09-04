@@ -76,8 +76,8 @@ const UserContent = ({ userId }) => {
           {contentList.map((item) => (
           <tbody>
               <tr key={item._id}>
-                <td>{item.name}</td>
-                <td>
+                <td style={{background:'white'}}>{item.name}</td>
+                <td style={{background:'#DDEBF5'}}>
                   {editingId === item._id ? (
                     <input
                       type="number"
@@ -88,9 +88,9 @@ const UserContent = ({ userId }) => {
                     item.quantity
                   )}
                 </td>
-                <td>{new Date(item.expiryDate).toLocaleDateString()}</td>
-                <td>{new Date(item.manufacturingDate).toLocaleDateString()}</td>
-                <td>
+                <td style={{background:'white'}}>{new Date(item.expiryDate).toLocaleDateString()}</td>
+                <td style={{background:'#DDEBF5'}}>{new Date(item.manufacturingDate).toLocaleDateString()}</td>
+                <td style={{background:'white'}}>
                   {editingId === item._id ? (
                     <>
                       <button onClick={() => handleUpdate(item._id)}>Save</button>

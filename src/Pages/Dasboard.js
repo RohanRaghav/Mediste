@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import DashNaav from '../Components/DashNaav';
-
+import Chat from '../Components/Chat';
 const Dashboard = () => {
   const navigate = useNavigate();
   const [isAuthenticated, setIsAuthenticated] = useState(null);
@@ -12,7 +12,11 @@ const Dashboard = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(10);
   const [searchTerm, setSearchTerm] = useState('');
+  const [isChatVisible, setIsChatVisible] = useState(false);
 
+  const toggleChat = () => {
+    setIsChatVisible(!isChatVisible);
+  };
   useEffect(() => {
     const fetchContent = async () => {
       try {
@@ -106,12 +110,12 @@ const Dashboard = () => {
               <tbody>
                 {currentItems.map((item) => (
                   <tr key={item._id}>
-                    <td>{item.userId}</td>
-                    <td>{item.name}</td>
-                    <td>{item.quantity}</td>
-                    <td>{new Date(item.expiryDate).toLocaleDateString()}</td>
-                    <td>{new Date(item.manufacturingDate).toLocaleDateString()}</td>
-                    <td>{item.hospital}</td>
+                    <td style={{background:'white'}}>{item.userId}</td>
+                    <td style={{background:'#DDEBF5'}}>{item.name}</td>
+                    <td style={{background:'white'}}>{item.quantity}</td>
+                    <td style={{background:'#DDEBF5'}}>{new Date(item.expiryDate).toLocaleDateString()}</td>
+                    <td style={{background:'white'}}>{new Date(item.manufacturingDate).toLocaleDateString()}</td>
+                    <td style={{background:'#DDEBF5'}}>{item.hospital}</td>
                   </tr>
                 ))}
               </tbody>
@@ -136,6 +140,10 @@ const Dashboard = () => {
             </button>
           </div>
         </div>
+        <button onClick={toggleChat} className="open-chat-button">
+        Chat
+      </button>
+      <Chat isVisible={isChatVisible} onClose={() => setIsChatVisible(false)} />
       </>
     );
   }
