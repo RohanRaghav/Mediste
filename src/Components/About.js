@@ -9,7 +9,7 @@ const About = () => {
             <div className="div-block-81">
               <div className="div-block-79">
                 <div className="div-block-87">
-                  <h2>Join the growing industry network 2.0</h2>
+                  <h2>Revolutionize Drug Inventory Management with AI</h2>
                   <img 
                     src="/"
                     sizes="(max-width: 479px) 100vw, (max-width: 767px) 47vw, (max-width: 1439px) 46vw, 595px"
@@ -18,18 +18,16 @@ const About = () => {
                   />
                 </div>
                 <p>
-                  The MediLedger network is the industry network 2.0 for the life sciences and healthcare industry, 
-                  that runs solutions for real-time alignment, rule enforcement, and settlement of transactions directly between trading partners.
-                </p>
+                PharmaGrid offers an innovative software solution designed to streamline drug inventory management and enhance supply chain transparency. Our platform leverages AI to provide real-time tracking, predictive analytics, and automated reordering, ensuring that essential medicines are always available when needed.</p>
               </div>
               <div className="div-block-80">
-                <h5 className="heading-21">Schedule a Personalized Demo</h5>
+                <h5 className="heading-21">Secure Access to Your Inventory</h5>
                 <p>
-                  Experience the power of our solutions firsthand! Schedule a personalized demo and discover how we can tailor our services to meet your unique needs.
+                Experience the power of our solutions firsthand! Login to discover how we can tailor our services to meet your unique needs
                 </p>
                 <div className="div-block-90">
                   <a href="/request-demo" className="button is-secondary w-inline-block" previewlistener="true">
-                    <div>Schedule Now</div>
+                    <div>Sign up Now</div>
                     <div className="html-embed-2 w-embed">
                       <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path 
@@ -46,9 +44,9 @@ const About = () => {
             </div>
             <div className="div-block-125">
               <img 
-                src="https://cdn.prod.website-files.com/59f37d05831e85000160b9b4/65846bc4fe2c7d9980d38e8f_big%20data%20analysis%20isometric.svg"
-                loading="lazy"
+                src="svgre.png"
                 alt=""
+                style={{width:500}}
               />
             </div>
           </div>

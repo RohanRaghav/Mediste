@@ -1,22 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import UserContent from '../Components/UserContent';
+import DashNaav from '../Components/DashNaav';
 
 const Medicineform = () => {
   const [userId, setUserId] = useState(null);
+  const [hospital, setHospital] = useState(null); // State for hospital
   const [name, setName] = useState('');
   const [quantity, setQuantity] = useState('');
   const [expiryDate, setExpiryDate] = useState('');
   const [manufacturingDate, setManufacturingDate] = useState('');
   const [message, setMessage] = useState('');  // For success or error message
 
-  // Retrieve userId from localStorage
+  // Retrieve userId and hospital from localStorage
   useEffect(() => {
     const storedUserId = localStorage.getItem('username');
+    const storedHospital = localStorage.getItem('hospital'); // Retrieve hospital
+
     if (storedUserId) {
       setUserId(storedUserId);
     } else {
       setMessage('Error: User ID not found.');
+    }
+
+    if (storedHospital) {
+      setHospital(storedHospital); // Set hospital state
+    } else {
+      setMessage('Error: Hospital information not found.');
     }
   }, []);
 
@@ -33,6 +43,7 @@ const Medicineform = () => {
     // Prepare the data to be sent to the server
     const contentData = {
       userId,
+      hospital, // Include hospital in the data
       name,
       quantity: parsedQuantity,
       expiryDate,
@@ -62,50 +73,55 @@ const Medicineform = () => {
   };
 
   return (
-    <div className='dashboard'>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Name:</label>
-          <input
-            type='text'
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
+    <>
+      <DashNaav />
+      <div style={{ marginTop: 100 }}>
+        <div className='dashboard'>
+          <form onSubmit={handleSubmit}>
+            <div>
+              <label>Name:</label>
+              <input
+                type='text'
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+              />
+            </div>
+            <div>
+              <label>Quantity:</label>
+              <input
+                type='number'
+                value={quantity}
+                onChange={(e) => setQuantity(e.target.value)}
+                required
+                min="1"
+              />
+            </div>
+            <div>
+              <label>Expiry Date:</label>
+              <input
+                type='date'
+                value={expiryDate}
+                onChange={(e) => setExpiryDate(e.target.value)}
+                required
+              />
+            </div>
+            <div>
+              <label>Manufacturing Date:</label>
+              <input
+                type='date'
+                value={manufacturingDate}
+                onChange={(e) => setManufacturingDate(e.target.value)}
+                required
+              />
+            </div>
+            <button type='submit'>Save Content</button>
+          </form>
+          {message && <p>{message}</p>}
+          <UserContent userId={userId} />
         </div>
-        <div>
-          <label>Quantity:</label>
-          <input
-            type='number'
-            value={quantity}
-            onChange={(e) => setQuantity(e.target.value)}
-            required
-            min="1"
-          />
-        </div>
-        <div>
-          <label>Expiry Date:</label>
-          <input
-            type='date'
-            value={expiryDate}
-            onChange={(e) => setExpiryDate(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label>Manufacturing Date:</label>
-          <input
-            type='date'
-            value={manufacturingDate}
-            onChange={(e) => setManufacturingDate(e.target.value)}
-            required
-          />
-        </div>
-        <button type='submit'>Save Content</button>
-      </form>
-      {message && <p>{message}</p>}
-      <UserContent userId={userId} />
-    </div>
+      </div>
+    </>
   );
 };
 

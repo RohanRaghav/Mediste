@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import DashNaav from '../Components/DashNaav';
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -69,70 +70,73 @@ const Dashboard = () => {
 
   if (isAuthenticated) {
     return (
-      <div className='dashboard'>
+      <>
+        <DashNaav />
         <div className='button-container'>
-          <button onClick={handleClick} className='register-button'>
+          <div className='search-container'>
+            <input
+              type='text'
+              placeholder='Search by name...'
+              value={searchTerm}
+              onChange={handleSearchChange}
+              className='search-input'
+            />
+          </div>
+          <div style={{paddingRight:50}}>
+          <button onClick={handleClick} className='demo-button'>
             Update your stock
-          </button>
+          </button></div>
         </div>
-        <h2>Hi {username}, Welcome to the Dashboard</h2>
-        <h2>Your Content</h2>
+        <div className='dashboard' style={{paddingTop:20}}>
+          {error && <p>{error}</p>}
+          {currentItems.length === 0 ? (
+            <p>No content available. Please add some items.</p>
+          ) : (
+            <table className='content-table'>
+              <thead>
+                <tr>
+                  <th>User ID</th>
+                  <th>Name</th>
+                  <th>Quantity</th>
+                  <th>Expiry Date</th>
+                  <th>Manufacturing Date</th>
+                  <th>Hospital</th>
+                </tr>
+              </thead>
+              <tbody>
+                {currentItems.map((item) => (
+                  <tr key={item._id}>
+                    <td>{item.userId}</td>
+                    <td>{item.name}</td>
+                    <td>{item.quantity}</td>
+                    <td>{new Date(item.expiryDate).toLocaleDateString()}</td>
+                    <td>{new Date(item.manufacturingDate).toLocaleDateString()}</td>
+                    <td>{item.hospital}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )}
 
-        <div className='search-container'>
-          <input
-            type='text'
-            placeholder='Search by name...'
-            value={searchTerm}
-            onChange={handleSearchChange}
-            className='search-input'
-          />
+          <div className='pagination-controls'>
+            <button
+              onClick={() => handlePageChange('prev')}
+              disabled={currentPage === 1}
+            >
+              Previous
+            </button>
+            <span>
+              Page {currentPage} of {Math.ceil(filteredContent.length / itemsPerPage)}
+            </span>
+            <button
+              onClick={() => handlePageChange('next')}
+              disabled={currentPage * itemsPerPage >= filteredContent.length}
+            >
+              Next
+            </button>
+          </div>
         </div>
-
-        {error && <p>{error}</p>}
-        {currentItems.length === 0 ? (
-          <p>No content available. Please add some items.</p>
-        ) : (
-          <ul>
-            {currentItems.map((item) => (
-              <li key={item._id}>
-                <div>
-                  <strong>UserName:</strong> {item.userId}
-                </div>
-                <div>
-                  <strong>Name:</strong> {item.name}
-                </div>
-                <div>
-                  <strong>Quantity:</strong> {item.quantity}
-                </div>
-                <div>
-                  <strong>Expiry Date:</strong> {new Date(item.expiryDate).toLocaleDateString()}
-                </div>
-                <div>
-                  <strong>Manufacturing Date:</strong> {new Date(item.manufacturingDate).toLocaleDateString()}
-                </div>
-              </li>
-            ))}
-          </ul>
-        )}
-
-        <div className='pagination-controls'>
-          <button
-            onClick={() => handlePageChange('prev')}
-            disabled={currentPage === 1}
-          >
-            Previous
-          </button>
-          <span>
-            Page {currentPage} of {Math.ceil(filteredContent.length / itemsPerPage)}
-          </span>
-          <button
-            onClick={() => handlePageChange('next')}
-            disabled={currentPage * itemsPerPage >= filteredContent.length}
-          >
-            Next
-          </button>
-        </div>
-      </div>
+      </>
     );
   }
 

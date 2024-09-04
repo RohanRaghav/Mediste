@@ -63,45 +63,53 @@ const UserContent = ({ userId }) => {
         <p>No content available. Please add some items.</p>
       ) : (
         <ul>
+           <table className="content-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Quantity</th>
+              <th>Expiry Date</th>
+              <th>Manufacturing Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
           {contentList.map((item) => (
-            <li key={item._id}>
-              <div>
-                <strong>Name:</strong> {item.name}
-              </div>
-              <div>
-                <strong>Quantity:</strong> 
-                {editingId === item._id ? (
-                  <input
-                    type="number"
-                    value={editedQuantity}
-                    onChange={(e) => setEditedQuantity(e.target.value)}
-                  />
-                ) : (
-                  item.quantity
-                )}
-              </div>
-              <div>
-                <strong>Expiry Date:</strong> {new Date(item.expiryDate).toLocaleDateString()}
-              </div>
-              <div>
-                <strong>Manufacturing Date:</strong> {new Date(item.manufacturingDate).toLocaleDateString()}
-              </div>
-              {editingId === item._id ? (
-                <>
-                  <button onClick={() => handleUpdate(item._id)}>Save</button>
-                  <button onClick={() => setEditingId(null)}>Cancel</button>
-                </>
-              ) : (
-                <>
-                  <button onClick={() => {
-                    setEditingId(item._id);
-                    setEditedQuantity(item.quantity);
-                  }}>Edit Quantity</button>
-                  <button onClick={() => handleDelete(item._id)}>Delete</button>
-                </>
-              )}
-            </li>
+          <tbody>
+              <tr key={item._id}>
+                <td>{item.name}</td>
+                <td>
+                  {editingId === item._id ? (
+                    <input
+                      type="number"
+                      value={editedQuantity}
+                      onChange={(e) => setEditedQuantity(e.target.value)}
+                    />
+                  ) : (
+                    item.quantity
+                  )}
+                </td>
+                <td>{new Date(item.expiryDate).toLocaleDateString()}</td>
+                <td>{new Date(item.manufacturingDate).toLocaleDateString()}</td>
+                <td>
+                  {editingId === item._id ? (
+                    <>
+                      <button onClick={() => handleUpdate(item._id)}>Save</button>
+                      <button onClick={() => setEditingId(null)}>Cancel</button>
+                    </>
+                  ) : (
+                    <>
+                      <button onClick={() => {
+                        setEditingId(item._id);
+                        setEditedQuantity(item.quantity);
+                      }}>Edit Quantity</button>
+                      <button onClick={() => handleDelete(item._id)}>Delete</button>
+                    </>
+                  )}
+                </td>
+              </tr>
+          </tbody>
           ))}
+           </table>
         </ul>
       )}
     </div>

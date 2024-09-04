@@ -46,6 +46,7 @@ const Login = () => {
           console.log('Sign up successful');
           localStorage.setItem('authToken', data.token); // Store the token
           localStorage.setItem('username', username); // Store the username
+          localStorage.setItem('hospital', hospital); 
           navigate('/Dashboard');
         } else {
           setError(data.error || 'Sign up failed');
@@ -61,7 +62,7 @@ const Login = () => {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ username, password }),
+          body: JSON.stringify({ username, password,hospital }),
         });
 
         const data = await response.json();
@@ -71,6 +72,7 @@ const Login = () => {
           console.log('Login successful');
           localStorage.setItem('authToken', data.token); // Store the token
           localStorage.setItem('username', username); // Store the username
+          localStorage.setItem('hospital', hospital); 
           navigate('/Dashboard');
         }
       } catch (err) {
@@ -83,7 +85,7 @@ const Login = () => {
     <div className='login'>
       <div className={`login-container ${isSignUp ? 'signup-mode' : 'login-mode'}`}>
         <div className="image-container">
-          <img src={isSignUp ? "signup-image.jpg" : "login-image.jpg"} alt={isSignUp ? "Signup Image" : "Login Image"} />
+          <img className='imagek' src={isSignUp ? "try.png" : "try.png"} alt={isSignUp ? "Signup Image" : "Login Image"} />
         </div>
         <div className="form-container">
           {isSignUp ? (
@@ -91,19 +93,20 @@ const Login = () => {
               <h2>Sign Up</h2>
               <form onSubmit={handleSubmit}>
                 <label>Username:</label>
-                <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} required />
+                <input type="text" value={username} className='labal' onChange={(e) => setUsername(e.target.value)} required />
                 <br />
                 <label>Hospital:</label>
-                <input type="text" value={hospital} onChange={(e) => setHospital(e.target.value)} required />
+                <input type="text" value={hospital} className='labal' onChange={(e) => setHospital(e.target.value)} required />
                 <br />
                 <label>Password:</label>
-                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+                <input type="password" className='labal' value={password} onChange={(e) => setPassword(e.target.value)} required />
                 <br />
                 <label>Email:</label>
-                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                <input type="email" className='labal' value={email} onChange={(e) => setEmail(e.target.value)} required />
                 <br />
                 {error && <p className="error">{error}</p>}
-                <button type="submit">Sign Up</button>
+                <div style={{paddingTop:5}}>
+                <button type="submit" className='buttons'>Sign Up</button></div>
                 <p>
                   Already have an account? <a onClick={handleToggle}>Login</a>
                 </p>
@@ -114,13 +117,17 @@ const Login = () => {
               <h2>Login</h2>
               <form onSubmit={handleSubmit}>
                 <label>Username:</label>
-                <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} required />
+                <input type="text" value={username} className='labal' onChange={(e) => setUsername(e.target.value)} required />
+                <br />
+                <label>Hospital:</label>
+                <input type="text" value={hospital} className='labal' onChange={(e) => setHospital(e.target.value)} required />
                 <br />
                 <label>Password:</label>
-                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+                <input type="password" value={password} className='labal' onChange={(e) => setPassword(e.target.value)} required />
                 <br />
                 {error && <p className="error">{error}</p>}
-                <button type="submit">Login</button>
+                <div style={{paddingTop:5}}>
+                <button type="submit" className='buttons'>Login</button></div>
                 <p>
                   Don't have an account? <a onClick={handleToggle}>Sign Up</a>
                 </p>

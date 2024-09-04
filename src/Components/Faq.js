@@ -88,14 +88,73 @@ const faqData = [
   {
     question: 'What is the MediLedger Network?',
     answer:
-      'The MediLedger Network is the leading life sciences industry network that runs solutions for data alignment, validation and transaction settlement between trading partners. The network utilizes blockchain technology to ensure decentralization and direct business dealings between trading partners.',
+      'The MediLedger Network is the leading life sciences industry network that runs solutions for data alignment, validation, and transaction settlement between trading partners. The network utilizes blockchain technology to ensure decentralization and direct business dealings between trading partners.',
   },
   {
     question: 'What is Chronicled?',
     answer:
       'Chronicled is a technology company based in San Francisco that developed the MediLedger Network. They provide ongoing support and improvements to the network in collaboration with life sciences industry leaders.',
   },
-  // Add more FAQs here...
+  {
+    question: 'What types of hospitals can use this platform?',
+    answer:
+      'Our platform is designed for hospitals of all sizes, from small clinics to large multi-specialty hospitals. Any healthcare facility looking to improve their drug inventory management and supply chain processes can benefit from our solution.',
+  },
+  {
+    question: 'How does the AI-driven predictive analytics work?',
+    answer:
+      'Our AI algorithms analyze historical data, current stock levels, and usage trends to predict future drug demand. This allows hospitals to reorder medicines proactively, reducing the risk of shortages and ensuring continuous availability of essential medicines.',
+  },
+  {
+    question: 'How secure is the data on your platform?',
+    answer:
+      'We prioritize the security of your data. Our platform uses advanced encryption protocols to ensure that all sensitive information, including patient data and inventory details, is securely stored and transmitted.',
+  },
+  {
+    question: 'Can the platform handle multiple locations?',
+    answer:
+      'Yes, our platform is designed to support hospitals with multiple locations. You can manage inventory across different sites from a single dashboard, allowing for centralized control and monitoring.',
+  },
+  {
+    question: 'What kind of reports can I generate?',
+    answer:
+      'Our platform offers a range of customizable reports, including inventory levels, expiry reports, usage patterns, and supply chain efficiency. These reports help hospitals make data-driven decisions and optimize their operations.',
+  },
+  {
+    question: 'How easy is it to integrate with our existing health systems?',
+    answer:
+      'We’ve designed our platform to be highly compatible with existing health information systems. Integration is straightforward and our support team is available to assist with the process to ensure a seamless transition.',
+  },
+  {
+    question: 'What happens if there is a discrepancy in the inventory?',
+    answer:
+      'Our platform includes auditing features that allow you to track all changes made to the inventory. In case of discrepancies, you can easily identify and resolve issues by reviewing the transaction logs.',
+  },
+  {
+    question: 'How do you ensure the accuracy of real-time tracking?',
+    answer:
+      'We use IoT-enabled devices to provide accurate, real-time tracking of drug shipments. These devices are regularly updated and maintained to ensure precision and reliability.',
+  },
+  {
+    question: 'What support options are available?',
+    answer:
+      'We offer 24/7 customer support via email, phone, and live chat. Our dedicated support team is here to help you with any technical issues, integration questions, or general inquiries.',
+  },
+  {
+    question: 'How can I request a demo?',
+    answer:
+      'You can request a demo by filling out the contact form on our website or by calling our support team. We’ll arrange a time that suits you to walk through the platform’s features and answer any questions you may have.',
+  },
+  {
+    question: 'Is training provided for new users?',
+    answer:
+      'Yes, we provide comprehensive training for all new users. Our training sessions cover everything from basic navigation to advanced features, ensuring that your team can use the platform effectively.',
+  },
+  {
+    question: 'Can I customize the platform to meet specific needs?',
+    answer:
+      'Yes, our platform is highly customizable. Whether you need specific features or tailored reports, we can work with you to modify the platform to meet your unique requirements.',
+  },
 ];
 
 export default Faq;
