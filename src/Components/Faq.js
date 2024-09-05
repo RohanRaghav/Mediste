@@ -40,7 +40,7 @@ const Faq = () => {
                 </svg>
               </div>
             </a>
-            <p>
+            <p style={{color:'white'}}>
               For any questions not addressed here, feel free to contact us at{' '}
               <a href="mailto:info@mediledger.com" className="link-12">
                 info@mediledger.com

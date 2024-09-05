@@ -810,7 +810,9 @@ input[type="email"] {
 .register-button:hover {
   background-color: #0056b3;
 }
-
+h4{
+  color: white;
+}
 .div-block-114 {
   grid-column-gap: 4.75rem;
   grid-row-gap: 4.75rem;
@@ -844,6 +846,7 @@ input[type="email"] {
   flex-direction: column;
   width: auto;
   max-width: none;
+  color: white;
 }
 
 .search-container{
