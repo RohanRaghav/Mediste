@@ -10,6 +10,7 @@ const DashNaav = () => {
           <div className="navbar-content">
           <img src="logo1.jpg" alt="Logo" className="navbar-logo" />
           </div>
+          <div className='nav-link' ><a className="nav-link" href='mediste pdf.pdf'>Rates</a></div>
           <div className="navbar-links">
             <div  className="nav-link" style={{cursor:"pointer", fontSize:'1.5rem'}}>
             <svg width="25px" height="25px" viewBox="0 0 32 32" enableBackground="new 0 0 32 32" id="Layer_1" version="1.1" xmlns="http://www.w3.org/2000/svg">
