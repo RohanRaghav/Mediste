@@ -32,13 +32,13 @@ const Contracts = () => {
       name: 'Vishal Sarmah',
       bio: 'Hi, I\'m Vishal Sarmah, a dedicated machine learning professional with a strong focus on precision and innovation. I specialize in crafting advanced models that address complex challenges and drive meaningful insights. My expertise spans data preprocessing, model development, and deploying AI solutions across diverse applications. I am committed to exploring cutting-edge algorithms and continuously pushing the boundaries of machine learning to deliver impactful results.',
       linkedin: 'https://www.linkedin.com/in/developer-vishal-sarmah?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
-      image: 'https://via.placeholder.com/150'
+      image: 'vishal.jpg'
     },
     {
       name: 'Gourangi Madhukoilya',
       bio: 'I\'m Gourangi Madhukoilya, a machine learning enthusiast with a strong focus on innovation and precision. I specialize in developing advanced models that solve complex problems and provide actionable insights. Alongside my expertise in machine learning, I have a solid foundation in frontend development, enabling me to integrate AI solutions seamlessly with user interfaces. I am dedicated to pushing the boundaries of machine learning and continually exploring new techniques to enhance impact.',
       linkedin: 'https://www.linkedin.com/in/gourangi-madhukoilya?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
-      image: 'https://via.placeholder.com/150'
+      image: 'gourangi.jpg'
     }
   ];
 
