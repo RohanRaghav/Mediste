@@ -698,7 +698,7 @@ section {
   font-style: bold;
 }
 
-.login-container {
+.login-container, .signup-form {
   display: flex;
   flex-direction: row;
   justify-content: center; /* Center content horizontally */

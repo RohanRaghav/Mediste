@@ -90,7 +90,6 @@ const Login = () => {
         <div className="form-container" id="login">
           {isSignUp ? (
             <div className="signup-form">
-              <h2>Sign Up</h2>
               <form onSubmit={handleSubmit}>
                 <label>Username:</label>
                 <input type="text" value={username} className='labal' onChange={(e) => setUsername(e.target.value)} required />
@@ -108,7 +107,7 @@ const Login = () => {
                 <div style={{paddingTop:5}}>
                 <button type="submit" className='buttons'>Sign Up</button></div>
                 <p>
-                  Already have an account? <a onClick={handleToggle}>Login</a>
+                  Already have an account? <a onClick={handleToggle} style={{cursor:'pointer'}}>Login</a>
                 </p>
               </form>
             </div>
@@ -129,7 +128,7 @@ const Login = () => {
                 <div style={{paddingTop:5}}>
                 <button type="submit" className='buttons'>Login</button></div>
                 <p>
-                  Don't have an account? <a onClick={handleToggle}>Sign Up</a>
+                  Don't have an account? <a onClick={handleToggle} style={{cursor:'pointer'}}>Sign Up</a>
                 </p>
               </form>
             </div>
