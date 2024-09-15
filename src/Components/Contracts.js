@@ -11,6 +11,12 @@ const Contracts = () => {
   // Data for each person
   const people = [
     {
+      name: 'Rohan Rghav',
+      bio: "Hi, I'm Rohan Raghav, a tech-savvy full-stack developer with a strong background in both front-end and back-end technologies. I've participated in numerous hackathons, where I've tackled challenging problems and crafted innovative solutions. My passion lies in creating seamless user experiences and optimizing functionality to build impactful tech solutions.",
+      linkedin: 'https://www.linkedin.com/in/rohan-raghav-b0b07a24a/',
+      image: 'rohan.png'
+    },
+    {
       name: 'Aryan Tomar',
       bio: 'Hi, I\'m Aryan Tomar, a passionate designer with a keen eye for detail and a love for creativity. I specialize in creating visually compelling designs that communicate effectively and resonate with audiences. My work ranges from branding and illustration to digital and print media, and I\'m always eager to explore new ideas and push the boundaries of design.',
       linkedin: 'https://www.linkedin.com/in/aryantomar28/',
@@ -27,18 +33,6 @@ const Contracts = () => {
       bio: 'Hi, I\'m Shreya, a dedicated content writer with a passion for crafting engaging and impactful stories. I specialize in creating clear, compelling content across various platforms, from blogs and articles to social media and web copy. My goal is to connect with readers through thoughtful, well-researched writing that informs, inspires, and drives action.',
       linkedin: 'https://www.linkedin.com/in/shreya-garg-596a48265/',
       image: 'shreya.jpg'
-    },
-    {
-      name: 'Vishal Sarmah',
-      bio: 'Hi, I\'m Vishal Sarmah, a dedicated machine learning professional with a strong focus on precision and innovation. I specialize in crafting advanced models that address complex challenges and drive meaningful insights. My expertise spans data preprocessing, model development, and deploying AI solutions across diverse applications. I am committed to exploring cutting-edge algorithms and continuously pushing the boundaries of machine learning to deliver impactful results.',
-      linkedin: 'https://www.linkedin.com/in/developer-vishal-sarmah?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
-      image: 'vishal.jpg'
-    },
-    {
-      name: 'Gourangi Madhukoilya',
-      bio: 'I\'m Gourangi Madhukoilya, a machine learning enthusiast with a strong focus on innovation and precision. I specialize in developing advanced models that solve complex problems and provide actionable insights. Alongside my expertise in machine learning, I have a solid foundation in frontend development, enabling me to integrate AI solutions seamlessly with user interfaces. I am dedicated to pushing the boundaries of machine learning and continually exploring new techniques to enhance impact.',
-      linkedin: 'https://www.linkedin.com/in/gourangi-madhukoilya?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
-      image: 'gourangi.jpg'
     }
   ];
 

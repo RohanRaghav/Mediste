@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import DashNaav from '../Components/DashNaav';
 import Chat from '../Components/Chat';
+import Location from '../Components/Location';
 const Dashboard = () => {
   const navigate = useNavigate();
   const [isAuthenticated, setIsAuthenticated] = useState(null);
@@ -12,11 +13,13 @@ const Dashboard = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(10);
   const [searchTerm, setSearchTerm] = useState('');
+  const [regionFilter, setRegionFilter] = useState('');
   const [isChatVisible, setIsChatVisible] = useState(false);
 
   const toggleChat = () => {
     setIsChatVisible(!isChatVisible);
   };
+
   useEffect(() => {
     const fetchContent = async () => {
       try {
@@ -30,6 +33,7 @@ const Dashboard = () => {
           const result = await axios.get('http://localhost:3001/api/content/full');
           console.log('Content fetched successfully:', result.data);
           setContentList(result.data);
+          console.log(contentList)
         } else {
           setIsAuthenticated(false);
           navigate('/');
@@ -40,16 +44,20 @@ const Dashboard = () => {
       }
     };
 
+
     fetchContent();
   }, [navigate]);
 
-  const filteredContent = contentList.filter(item =>
-    item.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
 
+
+  const filteredContent = contentList.filter(item =>
+    (item.name && item.name.toLowerCase().includes(searchTerm.toLowerCase())) &&
+    (item.Region && item.Region.toLowerCase().includes(regionFilter.toLowerCase()))
+  );
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = filteredContent.slice(indexOfFirstItem, indexOfLastItem);
+  
 
   const handlePageChange = (direction) => {
     if (direction === 'next' && currentPage * itemsPerPage < filteredContent.length) {
@@ -58,10 +66,14 @@ const Dashboard = () => {
       setCurrentPage(prevPage => prevPage - 1);
     }
   };
-
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
-    setCurrentPage(1);
+    setCurrentPage(1); // Reset to first page on search
+  };
+
+  const handleRegionChange = (e) => {
+    setRegionFilter(e.target.value);
+    setCurrentPage(1); // Reset to first page on filter change
   };
 
   const handleClick = () => {
@@ -83,17 +95,27 @@ const Dashboard = () => {
               placeholder='Search by name...'
               value={searchTerm}
               onChange={handleSearchChange}
+              style={{width:700,height:35,marginLeft:200}}
               className='search-input'
             />
+            <input
+              type='text'
+              placeholder='Filter by region...'
+              value={regionFilter}
+              className='search-region'
+              onChange={handleRegionChange}
+              style={{ marginLeft: '10px' }}
+            />
           </div>
-          <div style={{paddingRight:50}}>
-          <button onClick={handleClick} className='demo-button'>
-            Update your stock
-          </button></div>
+          <div style={{ paddingRight: 50 }}>
+            <button onClick={handleClick} className='demo-button'>
+              Update your stock
+            </button>
+          </div>
         </div>
-        <div className='dashboard' style={{paddingTop:20}}>
+        <div className='dashboard'>
           {error && <p>{error}</p>}
-          {currentItems.length === 0 ? (
+          {contentList.length === 0 ? (
             <p>No content available. Please add some items.</p>
           ) : (
             <table className='content-table'>
@@ -105,17 +127,19 @@ const Dashboard = () => {
                   <th>Expiry Date</th>
                   <th>Manufacturing Date</th>
                   <th>Hospital</th>
+                  <th>Region</th>
                 </tr>
               </thead>
               <tbody>
-                {currentItems.map((item) => (
+                {contentList.map((item) => (
                   <tr key={item._id}>
-                    <td style={{background:'white'}}>{item.userId}</td>
-                    <td style={{background:'#DDEBF5'}}>{item.name}</td>
-                    <td style={{background:'white'}}>{item.quantity}</td>
-                    <td style={{background:'#DDEBF5'}}>{new Date(item.expiryDate).toLocaleDateString()}</td>
-                    <td style={{background:'white'}}>{new Date(item.manufacturingDate).toLocaleDateString()}</td>
-                    <td style={{background:'#DDEBF5'}}>{item.hospital}</td>
+                    <td style={{ background: 'white' }}>{item.userId}</td>
+                    <td style={{ background: '#DDEBF5' }}>{item.name}</td>
+                    <td style={{ background: 'white' }}>{item.quantity}</td>
+                    <td style={{ background: '#DDEBF5' }}>{new Date(item.expiryDate).toLocaleDateString()}</td>
+                    <td style={{ background: 'white' }}>{new Date(item.manufacturingDate).toLocaleDateString()}</td>
+                    <td style={{ background: '#DDEBF5' }}>{item.hospital}</td>
+                    <td style={{ background: 'white' }}>{item.Region}</td>
                   </tr>
                 ))}
               </tbody>
@@ -140,10 +164,12 @@ const Dashboard = () => {
             </button>
           </div>
         </div>
+        <div className="open-location-button">
+        <Location /></div>
         <button onClick={toggleChat} className="open-chat-button">
-        <img src='chat.png' style={{width:50, height:50}} />
-      </button>
-      <Chat isVisible={isChatVisible} onClose={() => setIsChatVisible(false)} />
+          <img src='chat.png' style={{ width: 50, height: 50 }} alt="Chat" />
+        </button>
+        <Chat isVisible={isChatVisible} onClose={() => setIsChatVisible(false)} />
       </>
     );
   }

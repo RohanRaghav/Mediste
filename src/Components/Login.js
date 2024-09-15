@@ -6,6 +6,7 @@ const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [hospital, setHospital] = useState('');
+  const [region, setRegion] = useState('');
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
@@ -26,6 +27,12 @@ const Login = () => {
     const apiUrl = 'http://localhost:3001'; // Base URL for the server
   
     if (isSignUp) {
+      // Create signup data object
+      const signupData = { username, password, hospital, region, email };
+
+      // Log the signup data
+      console.log('Signup Data being sent to the server:', signupData);
+
       // Validation logic
       if (!validatePassword(password)) {
         setError('Password must contain at least one special character and one capital letter.');
@@ -38,7 +45,7 @@ const Login = () => {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ username, password, hospital, email }),
+          body: JSON.stringify(signupData),
         });
   
         const data = await response.json();
@@ -46,7 +53,8 @@ const Login = () => {
           console.log('Sign up successful');
           localStorage.setItem('authToken', data.token); // Store the token
           localStorage.setItem('username', username); // Store the username
-          localStorage.setItem('hospital', hospital); 
+          localStorage.setItem('hospital', hospital);
+          localStorage.setItem('region', region);  
           navigate('/Dashboard');
         } else {
           setError(data.error || 'Sign up failed');
@@ -55,14 +63,20 @@ const Login = () => {
         setError('An error occurred during sign-up. Please try again.');
       }
     } 
-     else {
+    else {
+      // Create login data object
+      const loginData = { username, password, hospital, region };
+
+      // Log the login data
+      console.log('Login Data being sent to the server:', loginData);
+
       try {
         const response = await fetch(`${apiUrl}/api/login`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ username, password,hospital }),
+          body: JSON.stringify(loginData),
         });
 
         const data = await response.json();
@@ -72,7 +86,8 @@ const Login = () => {
           console.log('Login successful');
           localStorage.setItem('authToken', data.token); // Store the token
           localStorage.setItem('username', username); // Store the username
-          localStorage.setItem('hospital', hospital); 
+          localStorage.setItem('hospital', hospital);
+          localStorage.setItem('region', region);  
           navigate('/Dashboard');
         }
       } catch (err) {
@@ -85,7 +100,7 @@ const Login = () => {
     <div className='login'>
       <div className={`login-container ${isSignUp ? 'signup-mode' : 'login-mode'}`}>
         <div className="image-container">
-          <img className='imagek' src={isSignUp ? "try.png" : "try.png"} alt={isSignUp ? "Signup Image" : "Login Image"} />
+          <img className='imagek' src="try.png" alt={isSignUp ? "Signup Image" : "Login Image"} />
         </div>
         <div className="form-container" id="login">
           {isSignUp ? (
@@ -97,6 +112,9 @@ const Login = () => {
                 <label>Hospital:</label>
                 <input type="text" value={hospital} className='labal' onChange={(e) => setHospital(e.target.value)} required />
                 <br />
+                <label>Region:</label>
+                <input type="text" value={region} className='labal' onChange={(e) => setRegion(e.target.value)} required />
+                <br />
                 <label>Password:</label>
                 <input type="password" className='labal' value={password} onChange={(e) => setPassword(e.target.value)} required />
                 <br />
@@ -105,7 +123,8 @@ const Login = () => {
                 <br />
                 {error && <p className="error">{error}</p>}
                 <div style={{paddingTop:5}}>
-                <button type="submit" className='buttons'>Sign Up</button></div>
+                  <button type="submit" className='buttons'>Sign Up</button>
+                </div>
                 <p>
                   Already have an account? <a onClick={handleToggle} style={{cursor:'pointer'}}>Login</a>
                 </p>
@@ -121,12 +140,16 @@ const Login = () => {
                 <label>Hospital:</label>
                 <input type="text" value={hospital} className='labal' onChange={(e) => setHospital(e.target.value)} required />
                 <br />
+                <label>Region:</label>
+                <input type="text" value={region} className='labal' onChange={(e) => setRegion(e.target.value)} required />
+                <br />
                 <label>Password:</label>
                 <input type="password" value={password} className='labal' onChange={(e) => setPassword(e.target.value)} required />
                 <br />
                 {error && <p className="error">{error}</p>}
                 <div style={{paddingTop:5}}>
-                <button type="submit" className='buttons'>Login</button></div>
+                  <button type="submit" className='buttons'>Login</button>
+                </div>
                 <p>
                   Don't have an account? <a onClick={handleToggle} style={{cursor:'pointer'}}>Sign Up</a>
                 </p>

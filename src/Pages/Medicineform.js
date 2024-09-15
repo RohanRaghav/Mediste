@@ -11,12 +11,12 @@ const Medicineform = () => {
   const [expiryDate, setExpiryDate] = useState('');
   const [manufacturingDate, setManufacturingDate] = useState('');
   const [message, setMessage] = useState('');  // For success or error message
-
+  const [region, setRegion] = useState('');
   // Retrieve userId and hospital from localStorage
   useEffect(() => {
     const storedUserId = localStorage.getItem('username');
     const storedHospital = localStorage.getItem('hospital'); // Retrieve hospital
-
+    const storedRegion = localStorage.getItem('region'); // Retrieve hospital
     if (storedUserId) {
       setUserId(storedUserId);
     } else {
@@ -25,6 +25,11 @@ const Medicineform = () => {
 
     if (storedHospital) {
       setHospital(storedHospital); // Set hospital state
+    } else {
+      setMessage('Error: Hospital information not found.');
+    }
+    if (storedRegion) {
+      setRegion(storedRegion); // Set hospital state
     } else {
       setMessage('Error: Hospital information not found.');
     }
@@ -44,6 +49,7 @@ const Medicineform = () => {
     const contentData = {
       userId,
       hospital, // Include hospital in the data
+      region,
       name,
       quantity: parsedQuantity,
       expiryDate,
