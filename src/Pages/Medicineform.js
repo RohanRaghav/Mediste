@@ -60,7 +60,7 @@ const Medicineform = () => {
 
     try {
       // Post the data to the server
-      const response = await axios.post('http://localhost:3001/api/content', contentData);
+      const response = await axios.post('https://latestserver.vercel.app/api/content', contentData);
 
       // Check if the server responded with success
       if (response.status === 201 || response.status === 200) {

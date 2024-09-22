@@ -8,7 +8,7 @@ const Chat = ({ isVisible, onClose }) => {
   // Fetch messages from the server
   useEffect(() => {
     if (isVisible) {
-      fetch('http://localhost:3001/api/messages')
+      fetch('https://latestserver.vercel.app/api/messages')
         .then(response => response.json())
         .then(data => setMessages(data))
         .catch(error => console.error('Error fetching messages:', error));
@@ -28,7 +28,7 @@ const Chat = ({ isVisible, onClose }) => {
     };
 
     // Send message to the server
-    fetch('http://localhost:3001/api/messages', {
+    fetch('https://latestserver.vercel.app/api/messages', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

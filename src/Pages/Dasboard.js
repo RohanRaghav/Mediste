@@ -30,7 +30,7 @@ const Dashboard = () => {
           setIsAuthenticated(true);
           setUsername(storedUsername || '');
           console.log('Fetching content from API...');
-          const result = await axios.get('http://localhost:3001/api/content/full');
+          const result = await axios.get('https://latestserver.vercel.app/api/content/full');
           console.log('Content fetched successfully:', result.data);
           setContentList(result.data);
           console.log(contentList)

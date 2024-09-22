@@ -12,7 +12,7 @@ const UserContent = ({ userId }) => {
     const fetchContent = async () => {
       try {
         console.log('Fetching content for user:', userId);
-        const result = await axios.get(`http://localhost:3001/api/content/${userId}`);
+        const result = await axios.get(`https://latestserver.vercel.app/api/content/${userId}`);
         console.log('Content fetched:', result.data);
         setContentList(result.data);
         setFilteredContent(result.data); // Initialize the filtered list with full content
@@ -37,10 +37,10 @@ const UserContent = ({ userId }) => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:3001/api/content/${id}`);
+      await axios.delete(`https://latestserver.vercel.app/api/content/${id}`);
       setMessage('Content successfully deleted.');
       // Refetch data after deletion
-      const result = await axios.get(`http://localhost:3001/api/content/${userId}`);
+      const result = await axios.get(`https://latestserver.vercel.app/api/content/${userId}`);
       setContentList(result.data);
       setFilteredContent(result.data); // Update the filtered list as well
     } catch (error) {
@@ -52,7 +52,7 @@ const UserContent = ({ userId }) => {
   const handleUpdate = async (id) => {
     try {
       const updatedContent = { quantity: editedQuantity };
-      const response = await axios.put(`http://localhost:3001/api/content/${id}`, updatedContent);
+      const response = await axios.put(`https://latestserver.vercel.app/api/content/${id}`, updatedContent);
       setContentList(contentList.map(item => item._id === id ? response.data : item));
       setMessage('Content successfully updated.');
       setEditingId(null);

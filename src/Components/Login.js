@@ -24,7 +24,7 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const apiUrl = 'http://localhost:3001'; // Base URL for the server
+    const apiUrl = 'https://latestserver.vercel.app'; // Base URL for the server
   
     if (isSignUp) {
       // Create signup data object
