@@ -707,7 +707,6 @@ section {
   flex-direction: row;
   justify-content: center; /* Center content horizontally */
   align-items: center; /* Center content vertically */
-  height: 100vh;
   margin: 0 auto;
   position: relative; /* Establish a positioning context for absolute children */
 }
@@ -728,14 +727,20 @@ section {
   flex-direction: column;
   align-items: center;
   border-radius: 10px;
-  background-image: url(/public/try.png);
-  background-position: 50%;
+  color: black;
+  background: url(/public/4.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  border: 2px solid rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(30px);
+  background-position: 50%;
   position: relative; /* Relative positioning to ensure it sits above the image */
   z-index: 2; /* Ensure the form is above the image */
   width: 50%; /* Adjust width as needed */
   max-width: 400px; /* Optional: Limit maximum width for better responsiveness */
+}
+.form-container h2{
+  padding-top: 30px;
 }
 
 /* ... rest of the styles remain the same */

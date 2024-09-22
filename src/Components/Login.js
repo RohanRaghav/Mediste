@@ -99,13 +99,11 @@ const Login = () => {
   return (
     <div className='login'>
       <div className={`login-container ${isSignUp ? 'signup-mode' : 'login-mode'}`}>
-        {/* <div className="image-container">
-          <img className='imagek' src="try.png" alt={isSignUp ? "Signup Image" : "Login Image"} />
-        </div> */}
         <div className="form-container" id="login">
           {isSignUp ? (
             <div className="signup-form">
               <form onSubmit={handleSubmit} >
+              <h2>Sign up</h2>
                 <label>Username:</label>
                 <input type="text" value={username} className='labal' onChange={(e) => setUsername(e.target.value)} required />
                 <br />
