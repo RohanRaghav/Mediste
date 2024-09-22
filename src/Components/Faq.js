@@ -12,12 +12,6 @@ const Faq = () => {
       <div className="div-block-114">
         <div className="div-block-115">
           <div className="div-block-116">
-            <img
-              src="https://cdn.prod.website-files.com/59f37d05831e85000160b9b4/6584989facb063571b65d2cd_Rectangle%2098%20(6).webp"
-              loading="lazy"
-              alt=""
-              className="image-49"
-            />
             <h4>Frequently Asked Questions</h4>
           </div>
           <div className="div-block-117">

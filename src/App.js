@@ -1,9 +1,8 @@
-// src/App.js
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import MainPage from './Pages/MainPage';
 import Medicineform from './Pages/Medicineform';
-import Dasboard from './Pages/Dasboard'; // Corrected spelling
+import Dasboard from './Pages/Dasboard'; 
 import { AuthProvider } from './contexts/AuthContext';
 import ProtectedRoute from './Components/ProtectedRoute';
 

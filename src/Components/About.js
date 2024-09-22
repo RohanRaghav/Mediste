@@ -9,7 +9,7 @@ const About = () => {
             <div className="div-block-81">
               <div className="div-block-79">
                 <div className="div-block-87">
-                  <h2>Revolutionize Drug Inventory Management with AI</h2>
+                  <h2>Revolutionize Drug Inventory Management</h2>
                   <img 
                     src="/"
                     sizes="(max-width: 479px) 100vw, (max-width: 767px) 47vw, (max-width: 1439px) 46vw, 595px"

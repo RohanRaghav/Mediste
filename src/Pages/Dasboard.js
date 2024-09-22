@@ -107,7 +107,7 @@ const Dashboard = () => {
               style={{ marginLeft: '10px' }}
             />
           </div>
-          <div style={{ paddingRight: 50 }}>
+          <div style={{ paddingRight: 50,marginTop:'-20px' }}>
             <button onClick={handleClick} className='demo-button'>
               Update your stock
             </button>
@@ -139,7 +139,7 @@ const Dashboard = () => {
                     <td style={{ background: '#DDEBF5' }}>{new Date(item.expiryDate).toLocaleDateString()}</td>
                     <td style={{ background: 'white' }}>{new Date(item.manufacturingDate).toLocaleDateString()}</td>
                     <td style={{ background: '#DDEBF5' }}>{item.hospital}</td>
-                    <td style={{ background: 'white' }}>{item.Region}</td>
+                    <td style={{ background: 'white' }}>{item.region}</td>
                   </tr>
                 ))}
               </tbody>

@@ -42,7 +42,7 @@ const Contracts = () => {
         <div className="div-block-87">
           <h2 className="heading-23">The Minds Behind the Solution</h2>
         </div>
-        <div className="div-block-88">
+        <div className="div-block-88" style={{marginLeft:50}}>
           {people.map((person, index) => (
             <div key={index} className="container_with_gradient">
               <div className="div-block-89">

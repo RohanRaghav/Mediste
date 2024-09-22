@@ -99,13 +99,13 @@ const Login = () => {
   return (
     <div className='login'>
       <div className={`login-container ${isSignUp ? 'signup-mode' : 'login-mode'}`}>
-        <div className="image-container">
+        {/* <div className="image-container">
           <img className='imagek' src="try.png" alt={isSignUp ? "Signup Image" : "Login Image"} />
-        </div>
+        </div> */}
         <div className="form-container" id="login">
           {isSignUp ? (
             <div className="signup-form">
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} >
                 <label>Username:</label>
                 <input type="text" value={username} className='labal' onChange={(e) => setUsername(e.target.value)} required />
                 <br />

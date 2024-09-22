@@ -11,7 +11,7 @@ import Navbar from '../Components/Navbar';
 
 const MainPage = () => {
   return (
-    <div>
+    <div style={{overflowX:'hidden'}}>
        <Navbar />
       <HeroSection />
       <About />
